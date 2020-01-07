@@ -16,6 +16,8 @@ RUN wget https://github.com/bioinformatics-centre/BayesTyper/releases/download/$
   tar -zxvf bayesTyper_${BAYESTYPER_VERSION}_linux_x86_64.tar.gz && \
   rm bayesTyper_${BAYESTYPER_VERSION}_linux_x86_64.tar.gz && \
   mv bayesTyper_${BAYESTYPER_VERSION}_linux_x86_64 bayesTyper && \
-  ln -s /opt/bayesTyper/bin/* /usr/bin/
+  find /opt/bayesTyper -type d -exec chmod 755 {} \; && \
+  find /opt/bayesTyper -type f -exec chmod 644 {} \;
+
 
 WORKDIR /
